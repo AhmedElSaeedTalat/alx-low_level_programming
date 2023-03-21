@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "main.h"
-#include <ctype.h>
 /**
   * _islower - checks for lower case charachter
   *
@@ -12,12 +11,13 @@ int _islower(int c)
 {
 	int i;
 
-	i = islower(c);
-
-	if (i != 0)
+	for (i = 97; i <= 122; i++)
 	{
-		return (1);
+		if (c == i)
+		{
+			return (1);
+		};
 	};
 
-	return (i);
+	return (0);
 }
