@@ -5,7 +5,7 @@
   *
   * Void: Always 0 (Void)
   */
-void print_alphabit(void)
+void print_alphabet(void)
 {
 	char i;
 
