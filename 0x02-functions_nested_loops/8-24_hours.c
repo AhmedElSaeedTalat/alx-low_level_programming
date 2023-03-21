@@ -18,14 +18,14 @@ void jack_bauer(void)
 
 			for (z = 48; z < 54; z++)
 			{
-				if(checker == 1)
+				if (checker == 1)
 				{
 					break;
 				};
 
 				for (x = 48; x <= 57; x++)
 				{
-					if(checker == 1)
+					if (checker == 1)
 					{
 						break;
 					};
