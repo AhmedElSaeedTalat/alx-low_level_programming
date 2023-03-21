@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
-  * void - Entry point
-  *
-  * Void: Always 0 (Void)
+  * print_alphabet - print Alphabits
   */
 void print_alphabet(void)
 {
