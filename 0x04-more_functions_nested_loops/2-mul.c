@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-  * muli - a function that multiplies two integers.
+  * mul - a function that multiplies two integers.
   *
   * @a: arg1
   *
