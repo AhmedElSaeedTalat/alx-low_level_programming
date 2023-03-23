@@ -1,8 +1,10 @@
 #include <stdio.h>
 /**
-  * print_numbers - print numbers except 3 and 5
+  * main - Entry point
+  *
+  * Return: Always 0 (Success)
   */
-void print_numbers(void)
+int main(void)
 {
 	int i;
 
@@ -24,14 +26,5 @@ void print_numbers(void)
 	};
 
 	putchar('\n');
-}
-/**
-  * main - Entry point
-  *
-  * Return: Always 0 (Success)
-  */
-int main(void)
-{
-	print_numbers();
 	return (0);
 }
