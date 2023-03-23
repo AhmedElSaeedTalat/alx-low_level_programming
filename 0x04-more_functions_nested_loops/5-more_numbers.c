@@ -12,14 +12,16 @@ void convert_number(int n)
 	{
 		first = (n / 10) + '0';
 		second = (n % 10) + '0';
-		_putchar(first);
-		_putchar(second);
 	} else
 	{
 		first = n + '0';
-		_putchar(first);
 	};
 
+	_putchar(first);
+	if (second > 47 && second < 58)
+	{
+		_putchar(second);
+	}
 }
 /**
   * more_numbers - a function that prints 10 times the numbers
