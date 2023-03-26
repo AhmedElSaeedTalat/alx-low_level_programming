@@ -1,46 +1,59 @@
 #include <stdio.h>
+#include <stdbool.h>
 /**
-  * main - Entry point
+  * check_largest - check largest prime
   *
-  * Return: Always 0 (Success)
+  * @arr: array with prime values;
+  *
+  * @count: count for array
   */
-void check_prime(int n)
+void check_largest(int *arr, int count)
 {
-	int i, y, count, res;
+	int largest = arr[0];
+	int i;
 
-	count = 0;
-	res = 1;
-	for (i = 2; i < n; i++)
+	for (i = 0; i <= count; i++)
+	{
+		if (arr[i] > largest)
+		{
+			largest = arr[i];
+		};
+	};
+
+	printf("%d\n", largest);
+}
+/**
+  * check_prime - check prime values
+  *
+  * @n: value entered to check
+  *
+  * @original_n: origianl value entered to check
+  */
+void check_prime(long int n, long int original_n)
+{
+	int i, y;
+	static int count;
+	static int arr[5];
+
+	for (i = 2; i < n / 2; i++)
 	{
 		if (n % i == 0)
 		{
-			for (y = 1; y < n; y++)
+			for (y = 0; y < n; y++)
 			{
 				n = n / i;
-				count++;
 				if (n % i != 0)
 				{
-					printf("last divided: %d\n",n);
-					printf("count: %d\n",count);
-					printf("div on: %d\n",i);
-					for (int z = 0; z < count; z++)
-					{
-						res = res * i;
-
-					};
-					res = res * n;
-					printf("res: %d\n",res);
-					check_prime(n);
-					printf("I reached this line and current n value is %d\n",n);
-					break;
+					arr[count] = i;
+					count++;
+					check_prime(n, original_n);
+					return;
 				};
 			}
-			
 		}
-		break;	
-	}
-
-			
+	};
+	arr[count] = n;
+	check_largest(arr, count);
 }
 
 /**
@@ -50,8 +63,8 @@ void check_prime(int n)
   */
 int main(void)
 {
-	int n = 1231952;
-	
-	check_prime(n);
+	long n = 612852475143;
+
+	check_prime(n, n);
 	return (0);
 }
