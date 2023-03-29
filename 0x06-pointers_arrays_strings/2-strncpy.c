@@ -16,7 +16,7 @@ int check_len(char *str)
 	{
 		len++;
 	};
-
+	
 	return (len);
 }
 
@@ -43,7 +43,7 @@ char *_strncpy(char *dest, char *src, int n)
 	len_dest = check_len(dest);
 	if (n <= len)
 	{
-		for (i = 0; i <= n; i++)
+		for (i = 0; i < n; i++)
 		{
 			*txt2 = *txt1;
 			txt1++;
