@@ -16,7 +16,7 @@ int check_len(char *str)
 	{
 		len++;
 	};
-	
+
 	return (len);
 }
 
@@ -58,13 +58,14 @@ char *_strncpy(char *dest, char *src, int n)
 			{
 				*txt2 = '\0';
 				break;
-			} else
+			} else if (*txt1 != '\0')
 			{
 				*txt2 = *txt1;
 			}
 			txt1++;
 			txt2++;
 		};
-	}
+	};
+
 	return (dest);
 }
