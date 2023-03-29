@@ -1,4 +1,12 @@
 #include <stdio.h>
+/**
+  * check_len - function that check length
+  *
+  * @str: string to check the length
+  *
+  * Return: length of the string
+  */
+
 int check_len(char *str)
 {
 	int len, i;
