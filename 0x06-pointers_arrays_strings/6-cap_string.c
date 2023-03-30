@@ -43,11 +43,6 @@ char *cap_string(char *str)
 			flag = 0;
 		}
 
-		if (str[i] == 9)
-		{
-			str[i] = 32;
-		}
-
 		flag = check_flag(str[i]);
 	}
 
