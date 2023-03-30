@@ -43,6 +43,11 @@ char *cap_string(char *str)
 			flag = 0;
 		}
 
+		if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[i] = str[i] - 32;
+		}
+
 		flag = check_flag(str[i]);
 	}
 
