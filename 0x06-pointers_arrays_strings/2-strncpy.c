@@ -1,25 +1,4 @@
 #include <stdio.h>
-/**
-  * check_len - function that check length
-  *
-  * @str: string to check the length
-  *
-  * Return: length of the string
-  */
-
-int check_len(char *str)
-{
-	int len, i;
-
-	len = 0;
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		len++;
-	};
-
-	return (len);
-}
-
 
 /**
   * _strncpy - function that copies a string
@@ -34,38 +13,23 @@ int check_len(char *str)
   */
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *txt1, *txt2;
-	int i, len, len_dest;
+	char *txt_src, *txt_dest;
+	int i;
 
-	txt1 = src;
-	txt2 = dest;
-	len = check_len(src);
-	len_dest = check_len(dest);
-	if (n <= len)
+	txt_src = src;
+	txt_dest = dest;
+
+	for (i = 0; i < n && src[i] != '\0'; i++)
 	{
-		for (i = 0; i < n; i++)
-		{
-			*txt2 = *txt1;
-			txt1++;
-			txt2++;
-		}
-	}
-	else if (n > len)
-	{
-		for (i = 0; i <= len_dest; i++)
-		{
-			if (*txt1 == '\0')
-			{
-				*txt2 = '\0';
-				break;
-			} else if (*txt1 != '\0')
-			{
-				*txt2 = *txt1;
-			}
-			txt1++;
-			txt2++;
-		};
+		*txt_dest = *txt_src;
+		txt_src++;
+		txt_dest++;
 	};
+	
+	for (; i < n; i++)
+	{
+		*txt_dest = '\0';
+	}
 
 	return (dest);
 }
