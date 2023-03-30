@@ -19,7 +19,7 @@ char *_strncpy(char *dest, char *src, int n)
 	txt_src = src;
 	txt_dest = dest;
 
-	for (i = 0; i < n && src[i] != '\0'; i++)
+	for (i = 0; i <= n && src[i] != '\0'; i++)
 	{
 		*txt_dest = *txt_src;
 		txt_src++;
@@ -29,6 +29,7 @@ char *_strncpy(char *dest, char *src, int n)
 	for (; i < n; i++)
 	{
 		*txt_dest = '\0';
+		txt_dest++;
 	}
 
 	return (dest);
