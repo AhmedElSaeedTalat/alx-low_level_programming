@@ -24,8 +24,8 @@ char *_strncpy(char *dest, char *src, int n)
 		*txt_dest = *txt_src;
 		txt_src++;
 		txt_dest++;
-	};
-	
+	}
+
 	for (; i < n; i++)
 	{
 		*txt_dest = '\0';
