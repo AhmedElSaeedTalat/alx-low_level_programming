@@ -14,7 +14,7 @@ int _strcmp(char *s1, char *s2)
 
 	if (s1 == NULL || s2 == NULL)
 	{
-		return (-1);
+		return (-15);
 	}
 
 	for (i = 0; *s1 == *s2; i++)
@@ -29,10 +29,10 @@ int _strcmp(char *s1, char *s2)
 
 	if (*s1 > *s2)
 	{
-		return (1);
+		return (15);
 	} else if (*s1 < *s2)
 	{
-		return (-1);
+		return (-15);
 	}
 
 	return (0);
