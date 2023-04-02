@@ -18,6 +18,11 @@ int check_len(int value)
 		count_int++;
 	}
 
+	if (value == 0)
+	{
+		count_int++;
+	}
+
 	return (count_int);
 }
 
@@ -39,11 +44,6 @@ void print_number(int n)
 	}
 
 	count_int = check_len(n);
-
-	if (n == 0)
-	{
-		count_int = 1;
-	}
 
 	for (i = 0; i < count_int; i++)
 	{
