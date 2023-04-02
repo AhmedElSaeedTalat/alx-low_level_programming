@@ -42,7 +42,7 @@ void print_number(int n)
 
 	if (n == 0)
 	{
-		_putchar(48);
+		_putchar(0 + '0');
 	}
 
 	count_int = check_len(value);
