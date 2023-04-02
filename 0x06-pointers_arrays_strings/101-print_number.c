@@ -28,10 +28,9 @@ int check_len(int value)
   */
 void print_number(int n)
 {
-	int i, count_int, value, tmp, count, num, y, negative, val_0;
+	int i, count_int, tmp, count, num, y, negative, val_0;
 	char to_print;
 
-	value = n;
 	num = 1;
 
 	if (n < 0)
@@ -46,7 +45,7 @@ void print_number(int n)
 		_putchar(val_0);
 	}
 
-	count_int = check_len(value);
+	count_int = check_len(n);
 	count = count_int;
 
 	for (i = 0; i < count_int; i++)
