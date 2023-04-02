@@ -60,7 +60,7 @@ void print_number(int n)
 
 		if (i == 0 && negative == 1)
 		{
-			_putchar(45);
+			_putchar('-');
 		}
 
 		to_print = tmp + '0';
