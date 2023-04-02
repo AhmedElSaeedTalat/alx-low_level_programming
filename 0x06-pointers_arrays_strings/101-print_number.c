@@ -1,9 +1,11 @@
 #include "main.h"
+#include <stdio.h>
 /**
   * check_len - function that checks how many digits in number
   *
   * @value: num to check
   *
+  * Return: the count.
   */
 int check_len(int value)
 {
@@ -28,44 +30,42 @@ int check_len(int value)
   */
 void print_number(int n)
 {
-	int i, count_int, tmp, count, num, y, negative, val_0;
+	int i, count_int, tmp, to_divide;
 	char to_print;
-
-	num = 1;
 
 	if (n < 0)
 	{
 		n =  -(n);
-		negative = 1;
-	}
-
-	if (n == 0)
-	{
-		val_0 = 0 + '0';
-		_putchar(val_0);
+		_putchar('-');
 	}
 
 	count_int = check_len(n);
-	count = count_int;
+
+	if (n == 0)
+	{
+		count_int = 1;
+	}
 
 	for (i = 0; i < count_int; i++)
 	{
-		for (y = 1; y < count; y++)
+		if (i == 0)
 		{
-			num = num * 10;
-		};
-
-		tmp = n / num;
-		tmp = tmp % 10;
-
-		if (i == 0 && negative == 1)
+			to_divide = 10;
+		} else
 		{
-			_putchar('-');
+			to_divide = to_divide * 10;
 		}
+	}
+
+	to_divide /= 10;
+	for (i = 0; i < count_int; i++)
+	{
+
+		tmp = n / to_divide;
+		tmp = tmp % 10;
 
 		to_print = tmp + '0';
 		_putchar(to_print);
-		num = 1;
-		count--;
+		to_divide /= 10;
 	}
 }
