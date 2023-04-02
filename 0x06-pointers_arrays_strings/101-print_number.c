@@ -11,15 +11,14 @@ int check_len(int value)
 	int i, count_int;
 
 	count_int = 0;
+	if (value == 0)
+	{
+		count_int++;
+	}
 
 	for (i = 0; value != 0; i++)
 	{
 		value = value / 10;
-		count_int++;
-	}
-
-	if (value == 0)
-	{
 		count_int++;
 	}
 
