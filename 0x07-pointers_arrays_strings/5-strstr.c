@@ -10,35 +10,35 @@
   */
 char *_strstr(char *haystack, char *needle)
 {
-	int y, found;
+	char *scanned_string, *string_find;
 
-	found = 0;
-	for (; *haystack != '\0';)
+	if (*needle == '\0' || needle == NULL)
 	{
-		for (y = 0; needle[y] != '\0'; y++)
-		{
-			if (*haystack == needle[y])
-			{
-				if (*++haystack == needle[y + 1])
-				{
-					haystack--;
-					found = 1;
-					return (haystack);
-				}
-			}
-		}
-		haystack++;
-	}
-
-	if (found == 0)
-	{
-		return (NULL);
-	}
-
-	if (*haystack == '\0' || *needle == '\0')
-	{
-		return (NULL);
+		return (haystack);
 	};
 
-	return (haystack);
+	for (; *haystack != '\0'; haystack++)
+	{
+		scanned_string = haystack;
+		string_find = needle;
+
+		for (; *scanned_string != '\0' && *string_find != '\0';
+		scanned_string++, string_find++)
+		{
+			if (*scanned_string != *string_find)
+			{
+				break;
+			}
+
+		}
+
+		if (*scanned_string == '\0')
+		{
+			return (haystack);
+		}
+	}
+
+
+
+	return (NULL);
 }
