@@ -34,5 +34,11 @@ char *_strstr(char *haystack, char *needle)
 	{
 		return (NULL);
 	}
+
+	if (*haystack == '\0' || *needle == '\0')
+	{
+		return (NULL);
+	};
+
 	return (haystack);
 }
