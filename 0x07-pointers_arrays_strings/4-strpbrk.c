@@ -10,5 +10,20 @@
   */
 char *_strpbrk(char *s, char *accept)
 {
-	return (0);
+	int y;
+
+	for (; *s != '\0';)
+	{
+		for (y = 0; accept[y] != '\0'; y++)
+		{
+			if (*s == accept[y])
+			{
+				return (s);
+			}
+		}
+
+		s++;
+	}
+
+	return (s);
 }
