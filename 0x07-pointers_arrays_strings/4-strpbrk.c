@@ -10,8 +10,9 @@
   */
 char *_strpbrk(char *s, char *accept)
 {
-	int y;
+	int y, found;
 
+	found = 0;
 	for (; *s != '\0';)
 	{
 		for (y = 0; accept[y] != '\0'; y++)
@@ -23,6 +24,11 @@ char *_strpbrk(char *s, char *accept)
 		}
 
 		s++;
+	}
+
+	if (found == 0)
+	{
+		return (NULL);
 	}
 
 	return (s);
