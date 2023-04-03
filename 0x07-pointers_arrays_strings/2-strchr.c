@@ -10,5 +10,18 @@
   */
 char *_strchr(char *s, char c)
 {
-	return (0);
+	int i;
+	char *f;
+
+	for (i = 0; *s != '\0'; i++)
+	{
+		if (*s == c)
+		{
+			f = s;
+			break;
+		}
+		s++;
+	}
+
+	return (f);
 }
