@@ -40,7 +40,7 @@ char *_strstr(char *haystack, char *needle)
 		return (haystack);
 	};
 
-	if (haystack == NULL || *haystack == '\0' || needle_len > stack_len)
+	if (haystack == NULL || *haystack == '\0' || (needle_len > stack_len))
 	{
 		return (NULL);
 	}
