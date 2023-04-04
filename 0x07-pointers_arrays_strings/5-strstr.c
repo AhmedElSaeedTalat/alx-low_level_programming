@@ -17,6 +17,11 @@ char *_strstr(char *haystack, char *needle)
 		return (haystack);
 	};
 
+	if (haystack == NULL)
+	{
+		return (NULL);
+	}
+
 	for (; *haystack != '\0'; haystack++)
 	{
 		scanned_string = haystack;
