@@ -10,6 +10,7 @@ int check_len(char *str)
 {
 	int count;
 
+	count = 0;
 	for (; *str != '\0'; str++)
 	{
 		count++;
