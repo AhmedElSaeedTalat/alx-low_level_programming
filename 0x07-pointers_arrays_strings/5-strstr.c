@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-  * check_len: checks length
+  * check_len - checks length
   *
   * @str: received str
   *
@@ -15,7 +15,7 @@ int check_len(char *str)
 		count++;
 	};
 
-	return count;
+	return (count);
 }
 
 /**
@@ -31,21 +31,16 @@ char *_strstr(char *haystack, char *needle)
 {
 	char *scanned_string, *string_find;
 	int stack_len, needle_len;
-	
+
 	stack_len = check_len(haystack);
 	needle_len = check_len(needle);
-	
-	if (needle_len > stack_len)
-	{
-		return (NULL);
-	}
 
 	if (*needle == '\0' || needle == NULL)
 	{
 		return (haystack);
 	};
 
-	if (haystack == NULL || *haystack == '\0')
+	if (haystack == NULL || *haystack == '\0' || needle_len > stack_len)
 	{
 		return (NULL);
 	}
