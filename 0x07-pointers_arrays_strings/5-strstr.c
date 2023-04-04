@@ -1,5 +1,24 @@
 #include <stdio.h>
 /**
+  * check_len: checks length
+  *
+  * @str: received str
+  *
+  * Return: int
+  */
+int check_len(char *str)
+{
+	int count;
+
+	for (; *str != '\0'; str++)
+	{
+		count++;
+	};
+
+	return count;
+}
+
+/**
   * _strstr - function that locates a substring
   *
   * @haystack: first char
@@ -11,6 +30,15 @@
 char *_strstr(char *haystack, char *needle)
 {
 	char *scanned_string, *string_find;
+	int stack_len, needle_len;
+	
+	stack_len = check_len(haystack);
+	needle_len = check_len(needle);
+	
+	if (needle_len > stack_len)
+	{
+		return (NULL);
+	}
 
 	if (*needle == '\0' || needle == NULL)
 	{
