@@ -9,6 +9,11 @@ void _print_rev_recursion(char *s)
 	char *first_address;
 
 	first_address = s;
+	if (*s == '\0')
+	{
+		return;
+	}
+
 	s++;
 	if (*s == '\0')
 	{
