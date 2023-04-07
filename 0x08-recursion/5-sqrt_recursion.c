@@ -13,7 +13,8 @@ int divide_num(int n, int i)
 	if (i == 1 || n < 0)
 	{
 		return (-1);
-	} else if (n % i == 0)
+	}
+	else if (n % i == 0)
 	{
 		if (i * i == n)
 		{
@@ -38,6 +39,11 @@ int _sqrt_recursion(int n)
 	{
 		return (1);
 	};
+	
+	if ( n > 1000)
+	{
+		i = divide_num(n, n / 10000);
+	}
 
 	i = divide_num(n, n - 1);
 
