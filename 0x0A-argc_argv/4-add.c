@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	sum = 0;
 	for (i = 1; i < argc; i++)
 	{
-		if (!isdigit(argv[i][0]))
+		if (isalpha(argv[i][0]))
 		{
 			printf("Error\n");
 			return (1);
