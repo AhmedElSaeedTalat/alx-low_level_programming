@@ -61,7 +61,6 @@ int main(int argc, char *argv[])
 {
 	int received, minimum;
 	int coins[5] = {25, 10, 5, 2, 1};
-	(void) argc;
 
 	if (argc != 2)
 	{
