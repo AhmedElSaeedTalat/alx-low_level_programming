@@ -17,6 +17,7 @@ int check_coins(int received, int *coins)
 
 	remainder = 0;
 	count = 0;
+	temp = 0;
 	for (i = 0; i < 5; i++)
 	{
 		if (received < coins[i])
