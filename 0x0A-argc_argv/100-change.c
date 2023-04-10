@@ -59,13 +59,22 @@ int check_coins(int received, int *coins)
   */
 int main(int argc, char *argv[])
 {
-	int received, minimum;
+	int received, minimum, i;
 	int coins[5] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
+	}
+
+	for (i = 0; argv[1][i] != '\0'; i++)
+	{
+		if (!isdigit(argv[1][i]))
+		{
+			printf("Error\n");
+			return (1);
+		}
 	}
 
 	received = atoi(argv[1]);
