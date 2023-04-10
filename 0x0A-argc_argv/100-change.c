@@ -9,43 +9,42 @@
   *
   * @coins: coins used
   *
+  * @memo: memory to store value of subproblems
+  *
   * Return: count
   */
-int check_coins(int received, int *coins)
+int check_coins(int received, int *coins, int (*memo)[150])
 {
-	int i, remainder, temp, count, val;
+	int i, y, temp;
 
-	remainder = 0;
-	count = 0;
 	temp = 0;
-	for (i = 0; i < 5; i++)
+	for (i = 0 ; i < 6; i++)
 	{
-		if (received < coins[i])
-			continue;
-
-		if (remainder > 0 && remainder >= coins[i])
+		for (y = 1; y <= received; y++)
 		{
-			temp += coins[i];
-			count++;
-			if (temp == received)
-				return (count);
-		}
+			memo[i][0] = 0;
 
-		if (remainder == 0)
-		{
-			remainder = received % coins[i];
-			if (remainder == 0)
+			if (coins[i] > y)
 			{
-				count = received / coins[i];
-				return (count);
+				memo[i][y] = memo[i - 1][y];
+			} else
+			{
+				memo[i][y] = memo[i][y - coins[i]] + 1;
 			}
 
-			val = received - remainder;
-			temp = (val / coins[i]) * coins[i];
-			count = val / coins[i];
+			if (y == received)
+			{
+				if (memo[i][y] < temp)
+				{
+					temp = memo[i][y];
+				} else if (i == 0)
+				{
+					temp = memo[i][y];
+				}
+			}
 		}
 	}
-	return (count);
+	return (temp);
 }
 
 /**
@@ -60,7 +59,11 @@ int check_coins(int received, int *coins)
 int main(int argc, char *argv[])
 {
 	int received, minimum, i;
-	int coins[5] = {25, 10, 5, 2, 1};
+	int coins[5] = {1, 2, 5, 10, 25};
+	int memo[6][150];
+
+	memo[0][0] = 0;
+	memo[0][1] = 1;
 
 	if (argc != 2)
 	{
@@ -81,7 +84,7 @@ int main(int argc, char *argv[])
 	if (received < 0)
 		printf("%d\n", 0);
 
-	minimum = check_coins(received, coins);
+	minimum = check_coins(received, coins, memo);
 	printf("%d\n", minimum);
-	return (minimum);
+	return (0);
 }
