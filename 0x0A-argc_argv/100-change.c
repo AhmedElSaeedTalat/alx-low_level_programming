@@ -18,7 +18,7 @@ int check_coins(int received, int *coins, int (*memo)[150])
 	int i, y, temp;
 
 	temp = 0;
-	for (i = 0 ; i < 6; i++)
+	for (i = 0 ; i < 5; i++)
 	{
 		for (y = 1; y <= received; y++)
 		{
@@ -60,10 +60,7 @@ int main(int argc, char *argv[])
 {
 	int received, minimum, i;
 	int coins[5] = {1, 2, 5, 10, 25};
-	int memo[6][150];
-
-	memo[0][0] = 0;
-	memo[0][1] = 1;
+	int memo[5][150];
 
 	if (argc != 2)
 	{
