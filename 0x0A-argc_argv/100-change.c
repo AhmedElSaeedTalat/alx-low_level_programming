@@ -13,7 +13,7 @@
   *
   * Return: count
   */
-int check_coins(int received, int *coins, int (*memo)[550])
+int check_coins(int received, int *coins, int (*memo)[1024])
 {
 	int i, y, temp;
 
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 {
 	int received, minimum, i;
 	int coins[5] = {1, 2, 5, 10, 25};
-	int memo[5][550];
+	int memo[5][1024];
 
 	if (argc != 2)
 	{
