@@ -68,6 +68,13 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
+	received = atoi(argv[1]);
+	if (received < 0)
+	{
+		printf("%d\n", 0);
+		return (1);
+	}
+
 	for (i = 0; argv[1][i] != '\0'; i++)
 	{
 		if (!isdigit(argv[1][i]))
@@ -76,10 +83,6 @@ int main(int argc, char *argv[])
 			return (1);
 		}
 	}
-
-	received = atoi(argv[1]);
-	if (received < 0)
-		printf("%d\n", 0);
 
 	minimum = check_coins(received, coins, memo);
 	printf("%d\n", minimum);
