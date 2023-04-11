@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 	if (received < 0)
 	{
 		printf("%d\n", 0);
-		return (0);
+		return (1);
 	}
 
 	for (i = 0; argv[1][i] != '\0'; i++)
