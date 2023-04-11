@@ -115,5 +115,9 @@ int main(int argc, char *argv[])
 
 	minimum = check_coins(received, coins, memo);
 	printf("%d\n", minimum);
+	for (i = 0; i < 5; i++)
+	{
+		free(memo[i]);
+	}
 	return (0);
 }
