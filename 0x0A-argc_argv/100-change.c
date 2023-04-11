@@ -13,7 +13,7 @@
   *
   * Return: count
   */
-int check_coins(int received, int *coins, int (*memo)[1024])
+int check_coins(int received, int *coins, int  **memo)
 {
 	int i, y, temp;
 
@@ -46,6 +46,33 @@ int check_coins(int received, int *coins, int (*memo)[1024])
 	}
 	return (temp);
 }
+/**
+  * memo_allocate - allocate memory for 2d array
+  *
+  * @received: received number of columns
+  *
+  * Return: the 2d array created
+  */
+int **memo_allocate(int received)
+{
+	int i, y, **memo;
+
+	memo = malloc(sizeof(int *) * 5);
+	for (i = 0; i < 5; i++)
+	{
+		memo[i] = malloc(sizeof(int) * (received + 1));
+	};
+
+	for (i = 0; i < 5; i++)
+	{
+		for (y = 0; y <= received; y++)
+		{
+			memo[i][y] = 0;
+		}
+	}
+	return (memo);
+}
+
 
 /**
   * main -  prints the minimum number of coins.
@@ -58,9 +85,8 @@ int check_coins(int received, int *coins, int (*memo)[1024])
   */
 int main(int argc, char *argv[])
 {
-	int received, minimum, i;
+	int received, minimum, i, **memo;
 	int coins[5] = {1, 2, 5, 10, 25};
-	int memo[5][1024];
 
 	if (argc != 2)
 	{
@@ -69,6 +95,9 @@ int main(int argc, char *argv[])
 	}
 
 	received = atoi(argv[1]);
+	memo = memo_allocate(received);
+
+
 	if (received < 0)
 	{
 		printf("%d\n", 0);
