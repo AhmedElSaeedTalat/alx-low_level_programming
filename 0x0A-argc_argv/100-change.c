@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 	memo = memo_allocate(received);
 
 
-	if (received < 0)
+	if (received <= 0)
 	{
 		printf("%d\n", 0);
 		return (1);
