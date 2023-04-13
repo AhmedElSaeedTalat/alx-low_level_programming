@@ -17,6 +17,12 @@ int get_len(char *s)
 	{
 		length++;
 	}
+
+	if (length == 1 && s[0] == ' ')
+	{
+		length = 0;
+	}
+
 	return (length);
 }
 /**
