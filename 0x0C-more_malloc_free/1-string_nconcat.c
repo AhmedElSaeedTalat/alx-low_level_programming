@@ -45,7 +45,6 @@ void *create_memory(unsigned int length1, unsigned int length2)
 
 	if (new_string == NULL)
 	{
-		free(new_string);
 		return (NULL);
 	}
 
