@@ -97,7 +97,7 @@ void copy_toString(char *s, char *s2, unsigned int t, unsigned int n, char *ns)
 			counter++;
 		}
 
-		for (i = 0; i < t - 1; i++)
+		for (i = 0; i < t - 1 && s2[i] != '\0'; i++)
 		{
 			ns[counter] = s2[i];
 			counter++;
