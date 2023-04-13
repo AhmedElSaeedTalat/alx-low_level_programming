@@ -13,6 +13,11 @@ int get_len(char *s)
 	int i, length;
 
 	length = 0;
+	if (s == NULL)
+	{
+		return (length);
+	}
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		length++;
@@ -55,27 +60,29 @@ void *create_memory(int length1, int length2)
   *
   * @tl: total length
   *
-  * @s1ln: string 1 length
+  * @n: number of bytes to copy
   *
-  * @s2ln: string 2 length
   *
   * @nwst: receied memory to copy to
   *
   */
 
-void copy_toString(char *s1, char *s2, int tl, int s1ln, int s2ln, char *nwst)
+void copy_toString(char *s1, char *s2, int tl, int n, char *nwst)
 {
-	int counter, i;
+	int counter, i, s1ln, s2ln;
 
 	counter = 0;
-	if (s1 == NULL || *s1 == '\0')
+	s1ln = get_len(s1);
+	s2ln = get_len(s2);
+
+	if (s1 == NULL || s1ln == 0)
 	{
-		for (i = 0; i < s2ln; i++)
+		for (i = 0; i < n; i++)
 		{
 			nwst[i] = s2[i];
 		}
 		nwst[i] = '\0';
-	} else if (s2 == NULL || *s2 == '\0')
+	} else if (s2 == NULL || s2ln == 0)
 	{
 		for (i = 0; i < s1ln; i++)
 		{
@@ -90,7 +97,7 @@ void copy_toString(char *s1, char *s2, int tl, int s1ln, int s2ln, char *nwst)
 			counter++;
 		}
 
-		for (i = 0; i < tl; i++)
+		for (i = 0; i < tl - 1; i++)
 		{
 			nwst[counter] = s2[i];
 			counter++;
@@ -144,6 +151,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		total = s1_length + n + 1;
 	}
 
-	copy_toString(s1, s2, total, s1_length, s2_length, new_string);
+	copy_toString(s1, s2, total, n, new_string);
 	return (new_string);
 }
