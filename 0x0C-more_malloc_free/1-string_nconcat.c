@@ -67,7 +67,7 @@ void *create_memory(int length1, int length2)
   *
   */
 
-void copy_toString(char *s1, char *s2, int tl, int n, char *nwst)
+void copy_toString(char *s1, char *s2, int tl, unsigned int n, char *nwst)
 {
 	int counter, i, s1ln, s2ln;
 
