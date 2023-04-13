@@ -123,15 +123,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	char *new_string;
 
-	if (s1 == NULL)
-		s1_length = 0;
-	else
-		s1_length = get_len(s1);
-
-	if (s2 == NULL)
-		s2_length = 0;
-	else
-		s2_length = get_len(s2);
+	s1_length = get_len(s1);
+	s2_length = get_len(s2);
 
 	total = 0;
 
