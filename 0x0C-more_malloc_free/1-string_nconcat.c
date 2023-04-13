@@ -143,7 +143,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 		total = s1_length + n + 1;
 	}
-
-	copy_toString(s1, s2, total, n, new_string);
+	if (n >= s2_length)
+		copy_toString(s1, s2, total, s2_length, new_string);
+	else
+		copy_toString(s1, s2, total, n, new_string);
 	return (new_string);
 }
