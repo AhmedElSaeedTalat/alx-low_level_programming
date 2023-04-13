@@ -41,7 +41,7 @@ int get_len(char *s)
   */
 void *create_memory(unsigned int length1, unsigned int length2)
 {
-	void *new_string = malloc(sizeof(char) * (length1 + length2 + 1));
+	void *new_string = malloc(sizeof(unsigned int) * (length1 + length2 + 1));
 
 	if (new_string == NULL)
 	{
