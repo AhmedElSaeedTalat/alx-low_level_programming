@@ -39,7 +39,7 @@ int get_len(char *s)
   *
   * Return: pointer to allocated string
   */
-void *create_memory(int length1, int length2)
+void *create_memory(unsigned int length1, unsigned int length2)
 {
 	void *new_string = malloc(sizeof(char) * (length1 + length2 + 1));
 
