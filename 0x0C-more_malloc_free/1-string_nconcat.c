@@ -82,7 +82,7 @@ void copy_toString(char *s1, char *s2, int tl, int n, char *nwst)
 			nwst[i] = s2[i];
 		}
 		nwst[i] = '\0';
-	} else if (s2 == NULL || s2ln == 0)
+	} else if (s2 == NULL || s2ln == 0 || *s2 == '\0')
 	{
 		for (i = 0; i < s1ln; i++)
 		{
