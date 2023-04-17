@@ -2,6 +2,27 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
+  * copy_string - copies from one string to another.
+  *
+  * @s: string to copy to
+  *
+  * @len: length of the string
+  *
+  * @to_copy: string to be copied from
+  */
+
+void copy_string(char *s, int len, char *to_copy)
+{
+	int i;
+
+	for (i = 0; i < len; i++)
+	{
+		s[i] = to_copy[i];
+	}
+	s[i] = '\0';
+}
+
+/**
   * new_dog - creates a new dog.
   *
   * @name: name of the dog
@@ -32,7 +53,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	new_dog->name = name;
+	copy_string(new_dog->name, name_len, name);
 	new_dog->age = age;
 	i = 0;
 	while (owner[i++] != '\0')
@@ -46,6 +67,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	new_dog->owner = owner;
+	copy_string(new_dog->owner, owner_len, owner);
 	return (new_dog);
 }
