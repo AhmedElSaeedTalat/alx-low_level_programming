@@ -43,8 +43,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new_dog == NULL)
 		return (NULL);
 
-	while (name[i++] != '\0')
+	while (name[i] != '\0')
+	{
 		name_len++;
+		i++;
+	}
 
 	new_dog->name = malloc(name_len + 1);
 	if (new_dog->name == NULL)
@@ -56,8 +59,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	copy_string(new_dog->name, name_len, name);
 	new_dog->age = age;
 	i = 0;
-	while (owner[i++] != '\0')
+	while (owner[i] != '\0')
+	{
 		owner_len++;
+		i++;
+	}
 
 	new_dog->owner = malloc(owner_len + 1);
 	if (new_dog->owner == NULL)
