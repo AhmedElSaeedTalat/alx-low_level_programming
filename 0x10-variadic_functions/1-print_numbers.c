@@ -7,8 +7,6 @@
   * @separator: string separetor
   *
   * @n: number of arguments
-  *
-  * Return: Always 0 (Success)
   */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
