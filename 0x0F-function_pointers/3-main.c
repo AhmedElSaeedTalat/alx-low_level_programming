@@ -34,6 +34,12 @@ int main(int argc, char *argv[])
 		case '/':
 		case '%':
 			get_op = get_op_func(s);
+			if (get_op == NULL)
+			{
+				printf("Error\n");
+				exit(98);
+			}
+
 			res = get_op(a, b);
 			printf("%d\n", res);
 			break;
