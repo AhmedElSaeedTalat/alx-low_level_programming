@@ -62,10 +62,10 @@ void print_all(const char * const format, ...)
 	const char *ptr;
 	char *separator;
 
-	separator = "";
 	if (format == NULL)
 		return;
 
+	separator = "";
 	ptr = format;
 	va_start(arg, format);
 	while (*ptr != '\0')
