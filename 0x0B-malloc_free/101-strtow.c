@@ -73,6 +73,38 @@ char *copy_string(char *str, int size)
 	return (copied_string);
 }
 /**
+  * loop - function that loop
+  *
+  * @count_str: count string
+  *
+  * @i: i count
+  *
+  * @counter: counter
+  *
+  * @arr: array sent
+  *
+  * @copied_string: copied string
+  *
+  * Return: counter
+  */
+int loop(int *count_str, int i, int counter, char **arr, char *copied_string)
+{
+	int y;
+
+	for (y = 0; y < count_str[i]; y++)
+	{
+		if (y == count_str[i] - 1)
+		{
+			arr[i][y] = '\0';
+		} else
+		{
+			arr[i][y] = copied_string[counter];
+			counter++;
+		}
+	}
+	return (counter);
+}
+/**
   * strtow - function that splits a string into words.
   *
   * @str: string received
@@ -82,13 +114,16 @@ char *copy_string(char *str, int size)
 char **strtow(char *str)
 {
 	char **arr, *copied_string;
-	int num_strings, total, *count_str, i, y, counter, x;
+	int num_strings, total, *count_str, i, counter, x;
 
 	num_strings = total = counter = 0;
 	count_str = check_len(str, &num_strings, &total);
 	copied_string = copy_string(str, total);
 	arr = malloc(sizeof(char *) * num_strings + 1);
-	if (str == NULL || str == NULL)
+	if (arr == NULL)
+		free(arr);
+
+	if (str == NULL || *str == '\0' || *str == ' ')
 		return (NULL);
 
 	for (i = 0; i < num_strings; i++)
@@ -105,17 +140,7 @@ char **strtow(char *str)
 			free(arr);
 			return (NULL);
 		}
-		for (y = 0; y < count_str[i]; y++)
-		{
-			if (y == count_str[i] - 1)
-			{
-				arr[i][y] = '\0';
-			} else
-			{
-				arr[i][y] = copied_string[counter];
-				counter++;
-			}
-		}
+		counter = loop(count_str, i, counter, arr, copied_string);
 	}
 	return (arr);
 }
