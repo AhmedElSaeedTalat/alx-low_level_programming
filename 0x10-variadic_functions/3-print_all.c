@@ -22,7 +22,8 @@ const char *check_spec(const char *ptr, char *separator, va_list arg)
 	{
 		case 'c':
 			c = va_arg(arg, int);
-			printf("%s%c", separator, c);
+			if (c != ' ')
+				printf("%s%c", separator, c);
 			break;
 		case 'i':
 			i = va_arg(arg, int);
@@ -36,7 +37,8 @@ const char *check_spec(const char *ptr, char *separator, va_list arg)
 			s = va_arg(arg, char *);
 			if (s == NULL)
 			{
-				printf("%s(nil)", separator);
+				s = "(nil)";
+				printf("%s%s", separator, s);
 			} else
 			{
 				printf("%s%s", separator, s);
