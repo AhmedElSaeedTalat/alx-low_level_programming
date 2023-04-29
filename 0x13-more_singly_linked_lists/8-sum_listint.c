@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "lists.h"
 /**
-  * sum_listint -  returns the sum of all the data (n) 
+  * sum_listint -  returns the sum of all the data (n)
   *
   * @head: head node
   *
@@ -8,5 +8,16 @@
   */
 int sum_listint(listint_t *head)
 {
-	return (0);
+	listint_t *curr;
+	int sum = 0;
+
+	if (head == NULL)
+		return (0);
+	curr = head;
+	while (curr != NULL)
+	{
+		sum += curr->n;
+		curr = curr->next;
+	}
+	return (sum);
 }
