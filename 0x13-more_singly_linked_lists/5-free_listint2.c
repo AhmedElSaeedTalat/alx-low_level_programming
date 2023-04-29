@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "lists.h"
 /**
   * free_listint2 -  frees a listint_t list
   *
@@ -6,5 +6,14 @@
   */
 void free_listint2(listint_t **head)
 {
-	return (0);
+	listint_t *curr, *ptr;
+
+	curr = ptr = *head;
+	while (curr != NULL)
+	{
+		ptr = curr;
+		curr = curr->next;
+		free(ptr);
+	}
+	*head = NULL;
 }
