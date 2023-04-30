@@ -33,7 +33,7 @@ int get_len(listint_t **head)
   */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *curr, *new, *ptr;
+	listint_t *curr, *new;
 	unsigned int i, length;
 
 	length = get_len(head);
@@ -46,10 +46,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	new->next = NULL;
 	if (idx == 0 && *head != NULL)
 	{
-		ptr = *head;
-		new->next = (*head)->next;
+		new->next = *head;
 		*head = new;
-		free(ptr);
 		return (new);
 	} else if (idx == 0 && *head == NULL)
 	{
