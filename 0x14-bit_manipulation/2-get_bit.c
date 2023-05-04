@@ -32,6 +32,8 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int i, bits;
 
 	bits = bits_needed(n);
+	if (index >= bits)
+		return (0);
 
 	i = 0;
 	while (n != 0 && i < bits)
