@@ -1,0 +1,16 @@
+#include "main.h"
+/**
+  * print_binary - binary representation of a number
+  *
+  * @n: received number
+  */
+void print_binary(unsigned long int n)
+{
+	unsigned long int res;
+	while (n != 0)
+	{
+		res = 1 & n;
+		_putchar(res + '0');
+		n >>= 1;
+	}
+}
