@@ -34,7 +34,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int i, bits;
 
 	bits = bits_needed(n);
-	if (index >= bits)
+	if (index > 64)
 		return (-1);
 	if (n == 0)
 		return (0);
