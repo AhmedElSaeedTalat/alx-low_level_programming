@@ -36,7 +36,7 @@ void print_binary(unsigned long int n)
 		binary = 1UL << bits;
 	}
 	i = 0;
-	while (binary != 0 && i <= 64)
+	while (binary != 0 && i <= bits)
 	{
 		if (binary & n)
 			_putchar('1');
