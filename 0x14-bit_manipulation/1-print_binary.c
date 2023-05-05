@@ -8,7 +8,7 @@
   */
 int bits_needed(unsigned long int n)
 {
-	int counter;
+	unsigned long int counter;
 
 	counter = 0;
 	while (n != 0)
@@ -26,7 +26,7 @@ int bits_needed(unsigned long int n)
   */
 void print_binary(unsigned long int n)
 {
-	int bits, binary, i;
+	unsigned long int bits, binary, i;
 
 	binary = 1UL;
 	bits = bits_needed(n);

@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-  /*  print_binary(ULONG_MAX);
+    print_binary(ULONG_MAX);
     printf("\n");
-   print_binary(1UL << 31);
+   /*print_binary(1UL << 31);
     printf("\n");
     print_binary(1UL << 63);
     printf("\n");
