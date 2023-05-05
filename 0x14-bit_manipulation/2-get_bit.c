@@ -10,6 +10,8 @@ int bits_needed(unsigned long int n)
 {
 	int counter;
 
+	if (n == 0)
+		return (1);
 	counter = 0;
 	while (n != 0)
 	{
@@ -29,19 +31,24 @@ int bits_needed(unsigned long int n)
   */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int i, bits;
+	unsigned int i, bits;
 
 	bits = bits_needed(n);
-	if (index > bits)
+	if (index >= bits)
 		return (-1);
+	if (n == 0)
+		return (0);
 
 	i = 0;
-	while (n != 0 && i < bits)
+	while (n > 0)
 	{
 		if (i == index)
+		{
 			return (n & 1);
+		}
 		n >>= 1;
 		i++;
 	}
+
 	return (0);
 }
