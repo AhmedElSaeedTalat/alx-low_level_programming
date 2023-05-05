@@ -40,7 +40,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (0);
 
 	i = 0;
-	while (n > 0)
+	while (n > 0 && i < bits)
 	{
 		if (i == index)
 		{
