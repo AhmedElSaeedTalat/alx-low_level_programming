@@ -28,6 +28,8 @@ void print_binary(unsigned long int n)
 {
 	int bits, binary, i;
 
+	if (n == 0)
+		_putchar('0');
 	binary = 1UL;
 	bits = bits_needed(n);
 	if (n > 0)
