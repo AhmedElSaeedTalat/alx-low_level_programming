@@ -59,15 +59,17 @@ int main(int argc, char *argv[])
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 		return (-1);
-	r_file = read(o_file, buffer, 1024);
-	if (r_file == -1)
-		print_error(file_from);
 	o_file2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, permissions);
 	if (o_file2 == -1)
 		print_error2(file_to);
-	w_file2 = write(o_file2, buffer, 1024);
-	if (w_file2 == -1)
-		print_error2(file_to);
+	while ((r_file = read(o_file, buffer, 1024))  > 0)
+	{
+		w_file2 = write(o_file2, buffer, r_file);
+		if (w_file2 == -1)
+			print_error2(file_to);
+	}
+	if (r_file == -1)
+		print_error(file_from);
 	close1 = close(o_file), close2 = close(o_file2);
 	if (close1 == -1)
 		print_error3(close1);
