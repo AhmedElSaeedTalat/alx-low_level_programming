@@ -14,7 +14,7 @@ void print_error(char *file_from)
 /**
   * print_error2 - print error if file
   * can't be opened to written to.
-  *
+  * @buffer: buffer to free
   * @file_to: name of file.
   */
 void print_error2(char *file_to, char *buffer)
@@ -26,12 +26,13 @@ void print_error2(char *file_to, char *buffer)
 /**
   * print_error3 - print error if file
   * doesn't close
-  *
+  * @buffer: buffer
   * @close: returned value
   */
-void print_error3(int close)
+void print_error3(int close, char *buffer)
 {
 	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close);
+	free(buffer);
 	exit(100);
 }
 /**
@@ -76,9 +77,9 @@ int main(int argc, char *argv[])
 		print_error(file_from);
 	close1 = close(o_file), close2 = close(o_file2);
 	if (close1 == -1)
-		print_error3(o_file);
+		print_error3(o_file, buffer);
 	else if (close2 == -1)
-		print_error3(o_file2);
+		print_error3(o_file2, buffer);
 	free(buffer);
 	return (0);
 }
