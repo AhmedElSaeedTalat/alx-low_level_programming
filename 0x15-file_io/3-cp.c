@@ -75,5 +75,6 @@ int main(int argc, char *argv[])
 		print_error3(close1);
 	else if (close2 == -1)
 		print_error3(close2);
+	free(buffer);
 	return (0);
 }
