@@ -75,9 +75,9 @@ int main(int argc, char *argv[])
 		print_error(file_from);
 	close1 = close(o_file), close2 = close(o_file2);
 	if (close1 == -1)
-		print_error3(close1);
+		print_error3(o_file);
 	else if (close2 == -1)
-		print_error3(close2);
+		print_error3(o_file2);
 	free(buffer);
 	return (0);
 }
