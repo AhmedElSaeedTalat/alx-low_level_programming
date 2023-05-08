@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	o_file = open(file_from, O_RDWR);
+	o_file = open(file_from, O_RDONLY);
 	if (o_file == -1)
 		print_error(file_from);
 	buffer = malloc(sizeof(char) * 1024);
