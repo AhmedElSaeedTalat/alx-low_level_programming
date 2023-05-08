@@ -17,9 +17,10 @@ void print_error(char *file_from)
   *
   * @file_to: name of file.
   */
-void print_error2(char *file_to)
+void print_error2(char *file_to, char *buffer)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+	free(buffer);
 	exit(99);
 }
 /**
@@ -58,18 +59,18 @@ int main(int argc, char *argv[])
 		print_error(file_from);
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
-		return (-1);
+		print_error2(file_to, buffer);
 	if (access(file_to, F_OK) != -1)
 		o_file2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY);
 	else
 		o_file2 = open(file_to, O_CREAT | O_WRONLY, permissions);
 	if (o_file2 == -1)
-		print_error2(file_to);
+		print_error2(file_to, buffer);
 	while ((r_file = read(o_file, buffer, 1024))  > 0)
 	{
 		w_file2 = write(o_file2, buffer, r_file);
 		if (w_file2 == -1)
-			print_error2(file_to);
+			print_error2(file_to, buffer);
 	}
 	if (r_file == -1)
 		print_error(file_from);
