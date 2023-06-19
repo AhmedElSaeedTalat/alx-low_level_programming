@@ -1,0 +1,12 @@
+#include <stdio.h>
+/**
+  * mod - mod two arguments
+  *
+  * @a: first int
+  * @b: second int
+  * Return: result
+  */
+int mod(int a, int b)
+{
+	return (a % b);
+}
