@@ -19,6 +19,7 @@ int main(void)
     
     hash_table_set(ht, "hetairas", "check collisions");
     hash_table_set(ht, "mentioner", "check collisions");
+    hash_table_set(ht, "mentioner", "update");
     
     hash_table_set(ht, "heliotropes", "check collisions");
     hash_table_set(ht, "neurospora", "check collisions");
@@ -26,7 +27,7 @@ int main(void)
     hash_table_set(ht, "depravement", "check collisions");
     hash_table_set(ht, "serafins", "check collisions");
     hash_table_set(ht, "serafins", "new update");
-    
-    print_table(ht);
+   
+	print_table(ht);
     return (EXIT_SUCCESS);
 }
