@@ -24,7 +24,7 @@ hash_node_t *create_item(const char *key, const char *value)
 		return (NULL);
 	}
 	length = strlen(value) + 1;
-	item->value = malloc(sizeof(char) * length + 1);
+	item->value = malloc(sizeof(char) * length);
 	if (item->value == NULL)
 	{
 		free(item->key);
