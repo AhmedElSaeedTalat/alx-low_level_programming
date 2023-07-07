@@ -117,7 +117,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index, val;
 	hash_node_t *item;
 
-	if (key == NULL)
+	if (key == NULL || ht == NULL || value == NULL)
 		return (0);
 	index = key_index((const unsigned char *) key, ht->size);
 	if (ht->array[index] == NULL)
