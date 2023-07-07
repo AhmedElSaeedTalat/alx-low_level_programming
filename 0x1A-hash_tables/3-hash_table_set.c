@@ -50,16 +50,14 @@ hash_node_t *create_item(const char *key, const char *value)
 int set_key_value(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *item, *current;
+	hash_node_t *item;
 
 	index = key_index((const unsigned char *) key, ht->size);
 	item = create_item(key, value);
 	if (item != NULL)
 	{
-		current = ht->array[index];
-		while (current->next)
-			current = current->next;
-		current->next = item;
+		item->next = ht->array[index];
+		ht->array[index] = item;
 		return (1);
 	}
 	return (0);
@@ -121,7 +119,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index, val;
 	hash_node_t *item;
 
-	if (key == NULL || *key == '\0' || ht == NULL)
+	if (key == NULL || *key == '\0' || ht == NULL || value == NULL)
 		return (0);
 	index = key_index((const unsigned char *) key, ht->size);
 	if (ht->array[index] == NULL)
