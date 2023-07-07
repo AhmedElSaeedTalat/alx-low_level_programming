@@ -79,11 +79,14 @@ int cmp_key(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index, set_value;
 	hash_node_t *current;
+	char *copied_value;
 
+	copied_value = strdup(value);
 	index = key_index((const unsigned char *) key, ht->size);
 	if (strcmp(ht->array[index]->key, key) == 0)
 	{
-		strcpy(ht->array[index]->value, value);
+		free(ht->array[index]->value);
+		ht->array[index]->value = copied_value;
 		return (1);
 	} else if (ht->array[index]->next != NULL)
 	{
@@ -92,7 +95,8 @@ int cmp_key(hash_table_t *ht, const char *key, const char *value)
 		{
 			if (strcmp(current->key, key) == 0)
 			{
-				strcpy(current->value, value);
+				free(current->value);
+				current->value = copied_value;
 				return (1);
 			}
 			current = current->next;
