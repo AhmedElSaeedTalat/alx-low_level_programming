@@ -79,15 +79,16 @@ int cmp_key(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *current;
 	char *copied_value;
 
-	copied_value = strdup(value);
 	index = key_index((const unsigned char *) key, ht->size);
 	if (strcmp(ht->array[index]->key, key) == 0)
 	{
+		copied_value = strdup(value);
 		free(ht->array[index]->value);
 		ht->array[index]->value = copied_value;
 		return (1);
 	} else if (ht->array[index]->next != NULL)
 	{
+		copied_value = strdup(value);
 		current = ht->array[index];
 		while (current)
 		{
