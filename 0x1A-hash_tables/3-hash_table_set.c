@@ -16,14 +16,14 @@ hash_node_t *create_item(const char *key, const char *value)
 	if (item == NULL)
 		return (NULL);
 
-	length = strlen(key) + 500;
+	length = strlen(key) + 1;
 	item->key = malloc(sizeof(char) * length);
 	if (item->key == NULL)
 	{
 		free(item);
 		return (NULL);
 	}
-	length = strlen(value) + 500;
+	length = strlen(value) + 1;
 	item->value = malloc(sizeof(char) * length + 1);
 	if (item->value == NULL)
 	{
@@ -36,8 +36,9 @@ hash_node_t *create_item(const char *key, const char *value)
 	item->next = NULL;
 	return (item);
 }
+
 /**
-  * helper_function - helper function to compare keys and set new keys
+  * set_key_value - helper function to set new keys
   *
   * @key: key passed
   * @value: value for the key passed
@@ -45,10 +46,39 @@ hash_node_t *create_item(const char *key, const char *value)
   *
   * Return: Always 1 (Success) and 0 (Failure)
   */
-int helper_function(hash_table_t *ht, const char *key, const char *value)
+
+int set_key_value(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *item, *current;
+
+	index = key_index((const unsigned char *) key, ht->size);
+	item = create_item(key, value);
+	if (item != NULL)
+	{
+		current = ht->array[index];
+		while (current->next)
+			current = current->next;
+		current->next = item;
+		return (1);
+	}
+	return (0);
+}
+
+/**
+  * cmp_key - helper function to compare keys and set new keys
+  *
+  * @key: key passed
+  * @value: value for the key passed
+  * @ht: table passed to the function
+  *
+  * Return: Always 1 (Success) and 0 (Failure)
+  */
+
+int cmp_key(hash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int index, set_value;
+	hash_node_t *current;
 
 	index = key_index((const unsigned char *) key, ht->size);
 	if (strcmp(ht->array[index]->key, key) == 0)
@@ -68,16 +98,8 @@ int helper_function(hash_table_t *ht, const char *key, const char *value)
 			current = current->next;
 		}
 	}
-	item = create_item(key, value);
-	current = ht->array[index];
-	if (item != NULL)
-	{
-		while (current->next)
-			current = current->next;
-		current->next = item;
-		return (1);
-	}
-	return (0);
+	set_value = set_key_value(ht, key, value);
+	return (set_value);
 }
 
 /**
@@ -89,9 +111,10 @@ int helper_function(hash_table_t *ht, const char *key, const char *value)
   *
   * Return: Always 1 (Success) and 0 (Failure)
   */
+
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index, helper;
+	unsigned long int index, val;
 	hash_node_t *item;
 
 	if (key == NULL)
@@ -106,10 +129,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (1);
 		} else
 			return (0);
-	} else
-	{
-		helper = helper_function(ht, key, value);
-		return (helper);
 	}
-	return (0);
+
+	val = cmp_key(ht, key, value);
+	return (val);
+
 }
