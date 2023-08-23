@@ -6,7 +6,7 @@ OBJ= $(SRC:.c=.o)
 
 .PHONY: all oclean clean fclean re
 
-all: $(OBJ)
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 oclean: 
@@ -18,7 +18,3 @@ clean:
 fclean:	clean oclean
 
 re: oclean all
-
-ifeq ($(wildcard m.h),)
-$(error)
-endif
