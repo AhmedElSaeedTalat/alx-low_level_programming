@@ -59,7 +59,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	int jump, x;
 	listint_t *curr, *prev, *node;
 
-	if (list == NULL)
+	if (list == NULL || size == 0)
 		return (NULL);
 	curr = list;
 	if (curr->n == value)
