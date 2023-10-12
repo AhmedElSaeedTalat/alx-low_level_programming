@@ -73,7 +73,12 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	{
 		printf("Value checked at index [%ld] = [%d]\n", curr->index, curr->n);
 		if (curr->n == value)
-			return (curr);
+		{
+			printf("Value found between indexes [%ld] and [%ld]\n", prev->index,
+					curr->index);
+			node = lsLinear_search(prev, curr, value);
+			return (node);
+		}
 		if (curr->n > value)
 		{
 			printf("Value found between indexes [%ld] and [%ld]\n", prev->index,
